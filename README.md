@@ -7,6 +7,8 @@ The classic snake game that putting its all logics/gameplay together in the brow
 - Moveable snake with keyboard {W,S,A,D}
 - Portal to the opposite at edges of the screen
 - Score system included
+- Game will be reset if the snake hit itselves
+- Multiple foods
 
 ## 🚀 Getting Started
 
