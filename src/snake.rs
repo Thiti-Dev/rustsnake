@@ -2,7 +2,10 @@ use crate::canvas::Canvas;
 use crate::direction::Direction;
 use crate::food::Food;
 use crate::pixel::Pixel;
+use stdweb::traits::*;
 use stdweb::unstable::TryInto;
+use stdweb::web::document;
+use stdweb::web::html_element::TemplateElement;
 
 pub struct Snake {
     head: Pixel,
@@ -13,6 +16,7 @@ pub struct Snake {
     direction: Option<Direction>,
     next_direction: Option<Direction>,
     previous_direction: Direction,
+    score: u32,
 }
 
 impl Snake {
@@ -44,6 +48,7 @@ impl Snake {
             direction: None,
             next_direction: None,
             previous_direction: Direction::Right,
+            score: 0,
         }
     }
 
@@ -93,7 +98,12 @@ impl Snake {
         for food in self.food.foods.iter() {
             canvas.draw(food.0, food.1, "green");
         }
-        //canvas.draw(self.food.0, self.food.1, "red");
+        //canvas.draw_text(1f64, 1f64, "Thiti");
+        let score_txt = document().query_selector("#score_txt").unwrap().unwrap();
+        // Using js-macro
+        js! {
+            @{score_txt}.innerHTML = "<h2>Score: " + @{self.score.to_string()}+ " </h2>";
+        };
     }
 
     //
@@ -108,6 +118,7 @@ impl Snake {
                         self.food.remove_food_at(index);
                         js! {console.log("Food removed, generating new food")};
                         self.food.gen_new_food(self.width, self.height);
+                        self.gain_score(); // gain the score
                         break; // Was Missing this <= it messed me up for 2hrs lollllllllllllllll!!
                     } else {
                         // @TODO Handling the error
@@ -117,6 +128,11 @@ impl Snake {
                 last_end.map(|x| self.tails.push(x));
             }
         }
+    }
+
+    fn gain_score(&mut self) {
+        self.score += 10;
+        js! {console.log("Current Score: " , @{self.score})}
     }
     // ────────────────────────────────────────────────────────────────────────────────
 }

@@ -4,7 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RustSnake🐍</title>
     <style>
-        p{
+        #score_txt{
+            margin-bottom: 2rem;
+        }
+        div p{
             text-align: center;
             margin: 0 auto;
             margin-bottom: 2rem;
@@ -26,6 +29,7 @@
     <!-- Creating the canvas for gameplay&rendering-->
     <div class="main_holder">
         <div><p>RustSnake🐍 => Written by Thiti Mahawannakit</p></div>
+        <div id="score_txt">Score: 0</div>
         <canvas id="canvas" width="640" height="480">
 
         </canvas>
