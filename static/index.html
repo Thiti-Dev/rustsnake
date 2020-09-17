@@ -4,6 +4,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RustSnake🐍</title>
     <style>
+        p{
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+        .main_holder{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         #canvas {
             outline: black 3px solid;
         }
@@ -11,9 +24,12 @@
 </head>
 <body>
     <!-- Creating the canvas for gameplay&rendering-->
-    <canvas id="canvas" width="800" height="800">
+    <div class="main_holder">
+        <div><p>RustSnake🐍 => Written by Thiti Mahawannakit</p></div>
+        <canvas id="canvas" width="640" height="480">
 
-    </canvas>
+        </canvas>
+    </div>
     <script src="rustsnake.js"></script>
 </body>
 </html>
