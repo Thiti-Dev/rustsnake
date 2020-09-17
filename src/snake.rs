@@ -5,7 +5,6 @@ use crate::pixel::Pixel;
 use stdweb::traits::*;
 use stdweb::unstable::TryInto;
 use stdweb::web::document;
-use stdweb::web::html_element::TemplateElement;
 
 pub struct Snake {
     head: Pixel,
