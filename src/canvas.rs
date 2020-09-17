@@ -62,7 +62,7 @@ impl Canvas {
     }
 
     pub fn clear_all(&self) {
-        self.ctx.set_fill_style_color("white");
+        self.ctx.set_fill_style_color("#e9f5f3");
         self.ctx.fill_rect(
             0.0,
             0.0,
